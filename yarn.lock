@@ -693,6 +693,11 @@ prism-media@^0.0.3:
   resolved "https://registry.yarnpkg.com/prism-media/-/prism-media-0.0.3.tgz#8842d4fae804f099d3b48a9a38e3c2bab6f4855b"
   integrity sha512-c9KkNifSMU/iXT8FFTaBwBMr+rdVcN+H/uNv1o+CuFeTThNZNTOrQ+RgXA1yL/DeLk098duAeRPP3QNPNbhxYQ==
 
+prism-media@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/prism-media/-/prism-media-0.4.2.tgz#6ad976f6a4688cc18ab1227e32eef43344f4c043"
+  integrity sha512-a8hsrMdVaSvaxnQTL31LIA1mUDsnDO1glOZQ8dMvCG+fxPO67UMYS2cNbdGk0RndCiwt1hkqMKLM3yiB1Hqjog==
+
 progress@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
@@ -940,6 +945,13 @@ ws@^4.0.0:
   dependencies:
     async-limiter "~1.0.0"
     safe-buffer "~5.1.0"
+
+ytdl-core-discord@amishshah/ytdl-core-discord:
+  version "1.0.0"
+  resolved "https://codeload.github.com/amishshah/ytdl-core-discord/tar.gz/1b250e6b775b4b97eea85c50481aab8b174ee0f8"
+  dependencies:
+    prism-media "^0.4.2"
+    ytdl-core "^0.29.1"
 
 ytdl-core@^0.29.1:
   version "0.29.1"

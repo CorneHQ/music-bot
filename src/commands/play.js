@@ -1,5 +1,6 @@
 const { Util } = require('discord.js');
 const ytdl = require('ytdl-core');
+const ytdlDiscord = require('ytdl-core-discord');
 
 module.exports = {
 	name: 'play',
@@ -39,7 +40,7 @@ module.exports = {
 		message.client.queue.set(message.guild.id, queueConstruct);
 		queueConstruct.songs.push(song);
 
-		const play = song => {
+		const play = async song => {
 			const queue = message.client.queue.get(message.guild.id);
 			if (!song) {
 				queue.voiceChannel.leave();
@@ -47,7 +48,7 @@ module.exports = {
 				return;
 			}
 
-			const dispatcher = queue.connection.playStream(ytdl(song.url))
+			const dispatcher = queue.connection.playOpusStream(await ytdlDiscord(song.url), { passes: 3 })
 				.on('end', reason => {
 					if (reason === 'Stream is not generating quickly enough.') console.log('Song ended.');
 					else console.log(reason);
