@@ -1,0 +1,29 @@
+{
+	"name": "discord-music-bot",
+	"version": "0.1.0",
+	"description": "",
+	"main": "src/index.js",
+	"author": "iCrawl <icrawltogo@gmail.com>",
+	"license": "MIT",
+	"private": true,
+	"scripts": {},
+	"dependencies": {
+		"discord.js": "^11.4.2",
+		"dotenv": "^6.2.0",
+		"opusscript": "^0.0.6",
+		"ytdl-core": "^0.29.1"
+	},
+	"devDependencies": {
+		"eslint": "^5.14.0",
+		"eslint-config-aqua": "^4.4.1"
+	},
+	"optionalDependencies": {
+		"@discordjs/uws": "^11.149.1",
+		"erlpack": "discordapp/erlpack",
+		"node-opus": "^0.3.1",
+		"zlib-sync": "^0.1.4"
+	},
+	"eslintConfig": {
+		"extends": "aqua/node"
+	}
+}
