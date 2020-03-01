@@ -10,7 +10,7 @@
 		"start": "node ."
 	},
 	"dependencies": {
-		"discord.js": "^11.6.1",
+		"discord.js": "github:discordjs/discord.js",
 		"dotenv": "^8.2.0",
 		"opusscript": "^0.0.7",
 		"ytdl-core": "2.0.0"
@@ -20,14 +20,16 @@
 		"eslint-config-aqua": "^7.2.1"
 	},
 	"optionalDependencies": {
-		"erlpack": "discordapp/erlpack",
 		"@discordjs/opus": "^0.1.0",
+		"erlpack": "github:discordapp/erlpack",
 		"zlib-sync": "^0.1.6"
 	},
 	"eslintConfig": {
 		"extends": "aqua/node"
 	},
 	"renovate": {
-		"extends": ["teal"]
+		"extends": [
+			"teal"
+		]
 	}
 }

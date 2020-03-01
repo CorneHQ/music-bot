@@ -8,9 +8,9 @@ module.exports = {
 	args: true,
 	cooldown: 5,
 	async execute(message, args) {
-		const { voiceChannel } = message.member;
-		if (!voiceChannel) return message.channel.send('I\'m sorry but you need to be in a voice channel to play music!');
-		const permissions = voiceChannel.permissionsFor(message.client.user);
+		const { channel } = message.member.voice;
+		if (!channel) return message.channel.send('I\'m sorry but you need to be in a voice channel to play music!');
+		const permissions = channel.permissionsFor(message.client.user);
 		if (!permissions.has('CONNECT')) return message.channel.send('I cannot connect to your voice channel, make sure I have the proper permissions!');
 		if (!permissions.has('SPEAK')) return message.channel.send('I cannot speak in this voice channel, make sure I have the proper permissions!');
 
@@ -30,7 +30,7 @@ module.exports = {
 
 		const queueConstruct = {
 			textChannel: message.channel,
-			voiceChannel,
+			voiceChannel: channel,
 			connection: null,
 			songs: [],
 			volume: 2,
@@ -47,10 +47,8 @@ module.exports = {
 				return;
 			}
 
-			const dispatcher = queue.connection.playStream(ytdl(song.url))
-				.on('end', reason => {
-					if (reason === 'Stream is not generating quickly enough.') console.log('Song ended.');
-					else console.log(reason);
+			const dispatcher = queue.connection.play(ytdl(song.url))
+				.on('finish', () => {
 					queue.songs.shift();
 					play(queue.songs[0]);
 				})
@@ -60,13 +58,13 @@ module.exports = {
 		};
 
 		try {
-			const connection = await voiceChannel.join();
+			const connection = await channel.join();
 			queueConstruct.connection = connection;
 			play(queueConstruct.songs[0]);
 		} catch (error) {
 			console.error(`I could not join the voice channel: ${error}`);
 			message.client.queue.delete(message.guild.id);
-			await voiceChannel.leave();
+			await channel.leave();
 			return message.channel.send(`I could not join the voice channel: ${error}`);
 		}
 	}
