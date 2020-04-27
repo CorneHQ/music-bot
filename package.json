@@ -10,17 +10,16 @@
 		"start": "node ."
 	},
 	"dependencies": {
-		"discord.js": "github:discordjs/discord.js",
+		"discord.js": "^12.2.0",
 		"dotenv": "^8.2.0",
-		"opusscript": "^0.0.7",
-		"ytdl-core": "2.1.1"
+		"ytdl-core": "^2.1.1"
 	},
 	"devDependencies": {
 		"eslint": "^6.8.0",
-		"eslint-config-aqua": "^7.2.1"
+		"eslint-config-aqua": "^7.2.3"
 	},
 	"optionalDependencies": {
-		"@discordjs/opus": "^0.2.0",
+		"@discordjs/opus": "^0.2.1",
 		"erlpack": "github:discordapp/erlpack",
 		"zlib-sync": "^0.1.6"
 	},
