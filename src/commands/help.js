@@ -6,7 +6,7 @@ module.exports = {
     cooldown: 5,
     execute(message) {
         const embed = new Discord.MessageEmbed()
-            .setColor("#32CD32")
+            .setColor('#32CD32')
             .setTitle('Cubes Music Help')
             .addField('cm!play <YouTube URL>', 'Play a song')
             .addField('cm!skip', 'Starts the next song in the queue')

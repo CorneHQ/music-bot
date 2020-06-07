@@ -23,7 +23,7 @@ module.exports = {
 		};
 
 		if (serverQueue) {
-			if(serverQueue.songs.length > 3 && !message.member.roles.has(601505636496310273)) return message.channel.send('You can\'t add more then 3 songs to the queue!');
+			if (serverQueue.songs.length > 3 && !message.member.roles.has('601505636496310273')) return message.channel.send('You can\'t add more then 3 songs to the queue!');
 			serverQueue.songs.push(song);
 			console.log(serverQueue.songs);
 			return message.channel.send(`✅ **${song.title}** has been added to the queue!`);
